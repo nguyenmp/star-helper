@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  if (window.location.href==="https://isis.sa.ucsb.edu/Landing/Homepage.aspx")
+  if (window.location.href==="https://isis.sa.ucsb.edu/Landing/Homepage.aspx" || window.location.href==="https://isis.sa.ucsb.edu/Landing/")
     window.location = "https://isis.sa.ucsb.edu/STAR/SACCP001.aspx";
 
   var continue_button = $('[name="ctl00$ContentPlaceHolder1$ButtonContinue"]');
