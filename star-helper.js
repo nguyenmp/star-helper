@@ -25,6 +25,15 @@ $( document ).ready(function() {
 
   var building_field = $("#ContentPlaceHolder1_Building");
   if (building_field) building_field.focus()
+  
+  if (window.location.href==="https://isis.sa.ucsb.edu/STAR/SAXCP017.aspx") {
+    var previous = [];
+    var trows = $("tbody").children();
+    for (i = 6; i < 21; i++)
+      previous.push("<tr style=\"height: 18px\">" + $(trows.clone()[i]).wrap("<tr/>").wrap("<div/>").html() + "</tr>");
+    $(previous.join()).insertAfter(trows[21]);
+    console.log(previous.join());
+  }
 });
 
 function pad(n, width, z) {
