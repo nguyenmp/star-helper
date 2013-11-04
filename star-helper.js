@@ -22,6 +22,9 @@ $( document ).ready(function() {
   if (date_field) date_field.val(date);
   var year_field = $("#ContentPlaceHolder1_DateYy");
   if (year_field) year_field.val(year);
+
+  var building_field = $("#ContentPlaceHolder1_Building");
+  if (building_field) building_field.focus()
 });
 
 function pad(n, width, z) {
