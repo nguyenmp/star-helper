@@ -22,7 +22,6 @@ $( document ).ready(function() {
   if (date_field) date_field.val(date);
   var year_field = $("#ContentPlaceHolder1_DateYy");
   if (year_field) year_field.val(year);
-  console.log(year);
 });
 
 function pad(n, width, z) {
