@@ -18,11 +18,12 @@
     {
       "matches": ["https://isis.sa.ucsb.edu/*"],
       "css": [],
-      "js": ["jquery.js", "star-helper.js"]
+      "js": ["jquery.js", "star-helper.js"],
+      "run_at": "document_end"
     }
   ],
 
   "background": {
-    "background": ["background.js"]
+    "scripts": ["background.js"]
   }
 }

@@ -27,14 +27,51 @@ $( document ).ready(function() {
   if (building_field) building_field.focus()
   
   if (window.location.href==="https://isis.sa.ucsb.edu/STAR/SAXCP017.aspx") {
-    var previous = [];
     var trows = $("tbody").children();
-    for (i = 6; i < 21; i++)
-      previous.push("<tr style=\"height: 18px\">" + $(trows.clone()[i]).wrap("<tr/>").wrap("<div/>").html() + "</tr>");
-    $(previous.join()).insertAfter(trows[21]);
-    console.log(previous.join());
+    
+    var first_time = $("#ContentPlaceHolder1_PG_1_StartTime_PR_1").val();
+    
+    if (first_time == "07:00") {
+      var previous = [];
+      for (i = 6; i < 21; i++)
+        previous.push("<tr style=\"height: 18px\">" + $(trows.clone()[i]).wrap("<tr/>").wrap("<div/>").html() + "</tr>");
+      saveString(previous.join());
+      $("#ContentPlaceHolder1_ButtonEnter").click();
+    }
+    
+    else {
+      loadString();
+    }
+    
+    console.log(chrome.extension['onMessage']);
   }
 });
+
+function saveString(string) {
+  console.log("saving string");
+  chrome.runtime.sendMessage(
+    {
+      type: 'SAVE_STRING',
+      name: 'string',
+      value: string
+    }, function() {console.log("saving saving");});
+}
+
+function loadString() {
+  console.log("loading string");
+  chrome.runtime.sendMessage(
+    {
+      type: 'LOAD_STRING',
+      name: '',
+      value: ''
+    }, stringLoaded);
+}
+
+function stringLoaded(previous) {
+  console.log("loaded");
+  var trows = $("tbody").children();
+  $(previous).insertBefore(trows[6]);
+}
 
 function pad(n, width, z) {
   z = z || '0';
