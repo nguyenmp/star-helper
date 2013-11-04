@@ -43,22 +43,19 @@ $( document ).ready(function() {
       loadString();
     }
     
-    console.log(chrome.extension['onMessage']);
   }
 });
 
 function saveString(string) {
-  console.log("saving string");
   chrome.runtime.sendMessage(
     {
       type: 'SAVE_STRING',
       name: 'string',
       value: string
-    }, function() {console.log("saving saving");});
+    }, function() {});
 }
 
 function loadString() {
-  console.log("loading string");
   chrome.runtime.sendMessage(
     {
       type: 'LOAD_STRING',
@@ -68,7 +65,6 @@ function loadString() {
 }
 
 function stringLoaded(previous) {
-  console.log("loaded");
   var trows = $("tbody").children();
   $(previous).insertBefore(trows[6]);
 }
