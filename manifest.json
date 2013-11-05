@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
 
-  "name": "One-click Kittens",
-  "description": "This extension demonstrates a browser action wtih kittens.",
+  "name": "Media-Helper",
+  "description": "Helps ME Techs!",
   "version": "0.0",
+  "update_url": "http://nguyenmp.com/media-helper/updates.xml",
 
   "content_scripts": [
     {
